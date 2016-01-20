@@ -4,9 +4,10 @@ var myApp = angular.module('myApp', []);
 // CONTROLLERS
 myApp.controller('mainController', ['$scope', function ($scope) {
     $scope.class = "";
+    $scope.cards = '';
     $scope.lookup = function(){
         console.log("lookup is working");
-        if($scope.class == "") $scope.class = "Mage";
+        //if($scope.class == "") $scope.class = "Mage";
         $.ajax({
 
             url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/' + $scope.class,
