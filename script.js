@@ -6,6 +6,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     $scope.class = "";
     $scope.cards = '';
     $scope.lookup = function(){
+        $scope.search = "";
         console.log("lookup is working");
         //if($scope.class == "") $scope.class = "Mage";
         $.ajax({
