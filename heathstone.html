@@ -13,7 +13,7 @@
         <div ng-controller ="mainController">
             <div class="jumbotron">
                 <div class="container">			
-                    <h1>Card Look Up</h1>
+                    <h2>Card Look Up</h2>
                     
                     <!--
                     <h2>Class</h2>
@@ -23,39 +23,39 @@
                     -->
   
                     <div class= "row">
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Hunter'; lookup()">Hunter</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Rogue'; lookup()">Rogue</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Mage'; lookup()">Mage</button>
                         </div>
                     </div>
                     <div class= "row">
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Paladin'; lookup()">Paladin</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Warlock'; lookup()">Warlock</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Warrior'; lookup()">Warrior</button>
                         </div>
                     </div>
                     <div class= "row">
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Shaman'; lookup()">Shaman</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Priest'; lookup()">Priest</button>
                         </div>
-                        <div class = "col-md-4">
+                        <div class = "col-md-4 character">
                             <button type="button" class="btn btn-default" ng-click="class='Druid'; lookup()">Druid</button>
                         </div>
                     </div>
-                    <input type="search" ng-if="cards!=''" id="search" ng-model="search" placeholder="Filter">
+                    <input class ="filterBar"type="search" id="search" ng-model="search" placeholder="Filter">
                 </div>
             </div>
             
@@ -63,7 +63,7 @@
 
             <div class="container">
                     <div id = "singleCard" ng-if="card.collectible == true && card.cost >=0" ng-repeat="card in cards | filter:search" style = "display: inline-block">
-                            <h3 id= "card">{{card.name}} </h3>
+                            <!--<h3 id= "card">{{card.name}} </h3>-->
                             <img ng-src="{{card.img}}" >
                     </div>
                     
