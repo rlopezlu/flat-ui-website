@@ -7,7 +7,6 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     $scope.class = "Choose a class above.";
     $scope.cards = '';
     $scope.search = "";
-    $scope.search.rarity = "rare";
     $scope.lookup = function(){
         console.log("lookup is working");
         $.ajax({
@@ -37,5 +36,6 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
     $scope.clickMe = function(nameId){
         console.log(nameId);
+        console.log($scope.search.rarity);
     };
 }]);
