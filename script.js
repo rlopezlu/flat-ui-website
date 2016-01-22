@@ -4,10 +4,11 @@ var myApp = angular.module('myApp', []);
 var encodedKey = "QkxJZzNadWlhZ21zaEZHY3dIcjBiMmNWemVVM3AxQ092VUtqc25NeHRkS284N1kyOHU";
 // CONTROLLERS
 myApp.controller('mainController', ['$scope', function ($scope) {
-    $scope.class = "";
+    $scope.class = "Choose a class above.";
     $scope.cards = '';
+    $scope.search = "";
+    $scope.search.rarity = "rare";
     $scope.lookup = function(){
-        $scope.search = "";
         console.log("lookup is working");
         $.ajax({
             url: 'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/' + $scope.class,
