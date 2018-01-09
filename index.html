@@ -1,114 +1,273 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title> My Hearthstone page</title>
-    <link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="script.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Raul Lopez Luna</title>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel = "stylesheet" href ="main.css">
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
+<body>
+  <div class="navbar-fixed">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Raul Lopez Luna</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="https://github.com/rlopezlu">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/rlopezlu/">LinkedIn</a></li>
+        <li><a href="https://drive.google.com/file/d/1iuFtue5M-g7UfHLUfsEqWKtF9iZZQzY9/view?usp=sharing">Resume</a></li>
+      </ul>
 
-<html>
-    <body ng-app = "myApp">
-        <div ng-controller ="mainController">
-            <div class="jumbotron">
-                <div class="container">         
-                    <h2>Card Look Up</h2>
-                    
-                    <!--
-                    <h2>Class</h2>
-                    <input type="text" ng-model="class" placeholder="Hunter, Rogue, Neutral ...">
-                    <br>
-                    <button type = "button" class="btn btn-primary" ng-click ="lookup()">Search</button>
-                    -->
-  
-                    <div class= "row">
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Hunter'; lookup()">Hunter</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Rogue'; lookup()">Rogue</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Mage'; lookup()">Mage</button>
-                        </div>
-                    </div>
-                    <div class= "row">
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Paladin'; lookup()">Paladin</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Warlock'; lookup()">Warlock</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Warrior'; lookup()">Warrior</button>
-                        </div>
-                    </div>
-                    <div class= "row">
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Shaman'; lookup()">Shaman</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Priest'; lookup()">Priest</button>
-                        </div>
-                        <div class = "col-md-4 character">
-                            <button type="button" class="btn btn-default" ng-click="class='Druid'; lookup()">Druid</button>
-                        </div>
-                    </div>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="https://github.com/rlopezlu">Github</a></li>
+        <li><a href="https://www.linkedin.com/in/rlopezlu/">LinkedIn</a></li>
+        <li><a href="https://drive.google.com/file/d/1iuFtue5M-g7UfHLUfsEqWKtF9iZZQzY9/view?usp=sharing">Resume</a></li>
+      </ul>
 
 
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  </div>
 
-                </div>
-            </div>
-            
 
-
-            <div class="container">
-                <h2>{{class}}</h2>
-                <input class ="filterBar form-control" type="search" id="search" ng-model="search.name" placeholder="Filter By Card Name">
-                   <!-- <input class ="filterBar form-control" type="search" id="search" ng-model="search.type" placeholder="Filter By Type">-->
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Card Type
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <button class="btn btn-default" ng-click="search.type = 'Minion'">Minion</button>
-                        <button class="btn btn-default" ng-click="search.type = 'Weapon'">Weapon</button>
-                        <button class="btn btn-default" ng-click="search.type = 'spell'">Spell</button>
-                        <button class="btn btn-default" ng-click="search.type = ''">All</button>
-                    </ul>
-                    <p>{{search.type}}</p>
-                </div>
-
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Rarity
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <button class="btn btn-default" ng-click="search.rarity = ''">All</button>
-                        <button class="btn btn-default" ng-click="search.rarity = 'Common'">Common</button>
-                        <button class="btn btn-default" ng-click="search.rarity = 'Rare'">Rare</button>
-                        <button class="btn btn-default" ng-click="search.rarity = 'Epic'">Epic</button>
-                        <button class="btn btn-default" ng-click="search.rarity = 'Legendary'; console.log(search.rarity)">Legendary</button>
-                    </ul>
-                        <p>{{search.rarity}}</p>
-                </div>
-
-                <br>
-                <div id = "singleCard" ng-if="card.collectible == true && card.cost >=0" ng-repeat="card in cards | filter:search" style = "display: inline-block">
-                    <!--<h3 id= "card">{{card.name}} </h3>-->
-                    <img ng-src="{{card.img}}" ng-click="clickMe(card.name)">   
-                </div>
-                    
-                
-    <!--      <div class="container">
-                <div ng-if="card.collectible == true && card.cost >=0" ng-repeat="card in cards" style = "display: inline-block">
-                    <h3 id="card">{{card.name}} </h3>
-                    <img ng-src="{{card.img}}" >
-                </div>-->
-            
-            </div>        
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <!-- <h1 class="header center">UC Santa Cruz 2013 - 2017</h1> -->
+        <div class="row center">
+          <h5 class="header col s12 light">U.C. Santa Cruz 2013 - 2017</h5>
+          <h5 class="header col s12 light">B.S. Computer Science</h5>          
+          <h5 class="header col s12 light">Richmond, Ca</h5>
+          <h5 class="header col s12 light">Raullopez2094@gmail.com</h5>
         </div>
-    </body>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img class="darken" src="pokeVue.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">          
+          <h4>Objective</h4>
+          <p class="left-align light">
+            I am looking for my first full time software development job. I have experience working with multiple parts of the javascript web dev stack using Node.js and compatible npm repos. Angular, React, and Vue are very powerful frameworks that I have spent a lot of time with. I have worked with mongodb and postgresql. Firebase was great for prototyping since it provided a cloud server and database.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+  <div class="parallax-container valign-wrapper">
+
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <!-- <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5> -->
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img class="darken" src="ucsc.jpg" alt="Unsplashed background img 2"></div>
+    
+  </div>
+  
+
+  <!-- <div class="container teal testing">
+    <p>
+      ;lakjsdf
+      asdf
+      asdfjahsdf
+      asdf
+      as
+      df
+      asd
+      fA
+      SD
+      FAS
+      DF
+      ASD
+      FA
+      SDF
+      A
+      SDF
+      ASF
+    </p>
+  </div>
+
+  <div class="blue testing">
+    <p>
+      ;lakjsdf
+      asdf
+      asdfjahsdf
+      asdf
+      as
+      df
+      asd
+      fA
+      SD
+      FAS
+      DF
+      ASD
+      FA
+      SDF
+      A
+      SDF
+      ASF
+    </p>
+  </div> -->
+
+  <div class="container">
+    <div class="section ">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <h4 class="center">Education</h4>
+        <div class="col s12 m4 ">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">laptop</i></h2>
+            <h5 class="center">Technology</h5>
+
+            <p class="light">Python, Javascript, nodejs, angular, react, vue, mongodb, firebase, postrgresql.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">school</i></h2>
+            <h5 class="center">Coursework</h5>
+
+            <p class="light">Algorithms, Data Structures, Operating Systems, Web Applications, Mobile Applications (Android), Senior Design.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Collaborator</h5>
+
+            <p class="light">I can work independently or in a group. Senior design taught me about assigning roles and responsibilities to team mates, and working together to tackle large projects.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <!--   My projects!!   -->
+      <div class="row">     
+        <h4 class="center">Projects</h4>   
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">insert_chart</i></h2>
+            <h5 class="center">Smart Irrigation</h5>
+            <ul>
+              <li>Worked with a team </li>
+              <li>Worked on the front end VUE.js</li>
+            </ul>
+      
+            <p class="light">Algorithms, Data Structures, Operating Systems, Web Applications, Mobile Applications (Android), Senior Design.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">format_list_bulleted</i></h2>
+            <h5 class="center">Quest Journal</h5>
+
+            <p class="light">Java developer. Worked with team of three to create a unique todo list. Completing tasts rewarded the user with experience points, which could be used to customize their user sprite.</p>
+          </div>
+        </div>
+
+      </div>
+
+
+       <div class="row">        
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">directions_car</i></h2>
+            <h5 class="center">Space</h5>
+            <ul>
+              <li>Worked with a team </li>
+              <li>Worked on the front end VUE.js</li>
+            </ul>
+      
+            <p class="light">Algorithms, Data Structures, Operating Systems, Web Applications, Mobile Applications (Android), Senior Design.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">add_shopping_cart</i></h2>
+            <h5 class="center">Pantry</h5>
+
+            <p class="light">Java developer. Worked with team of three to create a unique todo list. Completing tasts rewarded the user with experience points, which could be used to customize their user sprite.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+<!--
+  <footer class="page-footer teal">
+     <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Projects</h5>
+          <p class="grey-text text-lighten-4">I took multiple project oriented classes. Here, I would work with a team to complete a project in one or two quarters. Additionally, I participated in multiple hackathons around the bay area.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Smart Irrigation - Senior Project</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Quest Journal</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+-->
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
 </html>
